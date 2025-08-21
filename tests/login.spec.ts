@@ -1,12 +1,13 @@
-import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/loginPage';
+import { test } from '@playwright/test';
 import { ScrollUtils } from '../utiles/scrollUtils.ts';
+import { PoManager } from '../pages/poManager.ts';   
 
 
 test.describe("Login test" , ()=> {
 test("Successful login with valid credentials" , async ({page}) =>{
 
-    const  loginPage = new LoginPage(page);
+    const poManager = new PoManager(page);
+    const loginPage = poManager.getLoginPage();
     const ScrollUtil = new ScrollUtils(page);
   let  url="https://practice.expandtesting.com/login";
 
